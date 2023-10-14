@@ -27,4 +27,6 @@ Conseils d'assemblage
 - Ne pas brancher tout de suite l'imprimante, revoire plusieurs fois les branchements éléctriques en fonction de la documentation de montage. **NE PAS ALLUMER L'IMPRIMANTE SI PAS CERTAIN**. Risque de griller les composants (carte, moteurs, ventilateurs, plateau, cartouches de chauffe des buses).
 
 - Si on en dispose pas, imprimer dès que possible un axe pour les bobines afin de permettre au filament de se dérouler avec le moins de résistance possible.
-  *Une fois fait, il devrait y avoir très peu voir plus du tout de blocage d'impression parce que le fil est resté emmêlé dans la bobine. En effet, de temps à autre le fils se chevauche sur lui même et bloque la bobine. Avec un axe de bobine, celle-ci a tendance à permettre à la bobine de dérouler facilement sur elle même lorsque l'extrudeur tire le fil et à faire relacher les tensions de fils croisés dans la bobine lorsqu'il y en a.*![](..\images\2023-10-15-01-34-12-image.png) ![](..\images\2023-10-15-01-39-40-image.png)
+  *Une fois fait, il devrait y avoir très peu voir plus du tout de blocage d'impression parce que le fil est resté emmêlé dans la bobine. En effet, de temps à autre le fils se chevauche sur lui même et bloque la bobine. Avec un axe de bobine, celle-ci a tendance à permettre à la bobine de dérouler facilement sur elle même lorsque l'extrudeur tire le fil et à faire relacher les tensions de fils croisés dans la bobine lorsqu'il y en a.
+
+![](F:\REBUILD\GitHub\Impression-3D\images\2023-10-15-01-44-17-image.png)

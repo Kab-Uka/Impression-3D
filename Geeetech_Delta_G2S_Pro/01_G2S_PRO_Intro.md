@@ -30,3 +30,5 @@ Conseils d'assemblage
   *Une fois fait, il devrait y avoir très peu voir plus du tout de blocage d'impression parce que le fil est resté emmêlé dans la bobine. En effet, de temps à autre le fils se chevauche sur lui même et bloque la bobine. Avec un axe de bobine, celle-ci a tendance à permettre à la bobine de dérouler facilement sur elle même lorsque l'extrudeur tire le fil et à faire relacher les tensions de fils croisés dans la bobine lorsqu'il y en a.
 
 ![](F:\REBUILD\GitHub\Impression-3D\images\2023-10-15-01-44-17-image.png)
+
+![](F:\REBUILD\GitHub\Impression-3D\2023-10-15-01-46-01-image.png)

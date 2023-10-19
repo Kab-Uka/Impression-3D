@@ -18,4 +18,4 @@ Un tuto vidéo est disponible ici :
 - **Ne pas brancher tout de suite l'imprimante**, revoir plusieurs fois les branchements électriques en fonction de la documentation de montage. **NE PAS ALLUMER L'IMPRIMANTE SI PAS CERTAIN**. Risque de griller les composants (carte, moteurs, ventilateurs, plateau, cartouches de chauffe des buses).
 - **Axe bobine indispensable** - Si on n'en dispose pas, imprimer dès que possible un axe pour les bobines afin de permettre au filament de se dérouler avec le moins de résistance possible.
   *Une fois fait, il devrait y avoir très peu voir plus du tout de blocage d'impression parce que le fil est resté emmêlé dans la bobine. En effet, de temps à autre le fils se chevauche sur lui même et bloque la bobine. Avec un axe de bobine, celle-ci a tendance à permettre à la bobine de dérouler facilement sur elle même lorsque l'extrudeur tire le filament et à faire relâcher les tensions de fils croisés dans la bobine lorsqu'il y en a.*
-- 😇
+- 😇🌑🌳🌭

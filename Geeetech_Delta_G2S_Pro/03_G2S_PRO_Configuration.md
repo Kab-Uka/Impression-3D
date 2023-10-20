@@ -12,7 +12,7 @@ firmware :
 
 ### Fichier configuration.h
 
-#### Ligne : #define EXTRUDERS
+#### 🔵Ligne : #define EXTRUDERS
 
 Définis le nombre d'extrudeurs que l'on veux/peux utiliser. Pour la G2S Pro, la valeur doit être égale à 2. Cependant poru démarrer, il est possible de ne configurer qu'un seul extrudeur. Dans ce cas, le centre d'impression sera décalé du centre du plateau de 13 mm environ vers l'avant. A prendre en compte lors des premiers essais pa rrapport à la circonférence du plateau.
 
@@ -23,7 +23,6 @@ Exemple:
 #define EXTRUDERS 1	// l'imprimante ne reconnait qu'un seul extrudeur
 ```
 
-
 ```
 // This defines the number of extruders
 #define EXTRUDERS 2	// l'imprimante reconnait les 2 extrudeurs.
@@ -33,7 +32,7 @@ Exemple:
 
 ⚠**Attention**⚠: Il faut aussi veiller à ce que les 2 extrudeurs soient très exactement à la même hauteur sous peine de voir vos impressions dégradées par celui des 2 extrudeurs qui est trop bas.
 
-#### Ligne : #define DELTA_DIAGONAL_ROD
+#### 🔵Ligne : #define DELTA_DIAGONAL_ROD
 
 La valeur de DELTA_DIAGONAL_ROD doit correspondre à la longueur des bras de l'imprimante, la mesure est à prendre au centre des poulies de part et d'autre de l'axe. 
 

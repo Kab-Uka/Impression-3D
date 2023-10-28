@@ -1,6 +1,6 @@
 # Configuration de l'imprimante
 
-lien notice de démarrage : 
+lien notice de démarrage :
 
 quelques liens :
 
@@ -12,11 +12,13 @@ firmware :
 
 ### Fichier configuration.h
 
+Lien : [configuration.h](Geeetech_Delta_G2S_Pro\Marlin_Geeetech_RKMB_GT2560_G2S_Pro\Marlin\Configuration.h)
+
 #### 🔵 Ligne : #define EXTRUDERS
 
 Définis le nombre d'extrudeurs que l'on veux/peux utiliser. Pour la G2S Pro, la valeur doit être égale à 2. Cependant poru démarrer, il est possible de ne configurer qu'un seul extrudeur. Dans ce cas, le centre d'impression sera décalé du centre du plateau de 13 mm environ vers l'avant. A prendre en compte lors des premiers essais pa rrapport à la circonférence du plateau.
 
-Exemple: 
+Exemple:
 
 ```
 // This defines the number of extruders
@@ -34,7 +36,7 @@ Exemple:
 
 #### 🔵 Ligne : #define DELTA_DIAGONAL_ROD
 
-La valeur de DELTA_DIAGONAL_ROD doit correspondre à la longueur des bras de l'imprimante, la mesure est à prendre au centre des poulies de part et d'autre de l'axe. 
+La valeur de DELTA_DIAGONAL_ROD doit correspondre à la longueur des bras de l'imprimante, la mesure est à prendre au centre des poulies de part et d'autre de l'axe.
 
 Exemple :
 
@@ -58,7 +60,7 @@ Ainsi, si le plateau est parfaitement plat, cetet valeur ne doit pas être modif
 
 ⚠**Attention**⚠: Comment je sais que mon plateau est concave ou convexe ? C'est lorsque, une fois que les endstops sont parfaitements ajustés et que la tête d'impression est au même niveau sur les 3 points sous les endstops, et que celle-ci reviens au centre du plateau, elle n'est plus au même niveau que ces 3 points périphériques. Soit la tête est trop haute au point Z=0, auquel cas le plateau est à considérer comme concave (cuvette), soit elle est trop basse et touche le plateau avant d'atteindre Z=0, dans ce cas le plateau est considéré comme convexe (dôme).
 
-Exemple : 
+Exemple :
 
 ```
 // Horizontal distance bridged by diagonal push rods when effector is centered.
@@ -72,7 +74,7 @@ Dans ce cas de figure, la plateau après premier réglage des endstops était co
 
 Il s'agit de définir la zone imprimable sur le plateau de la G2S. Le plateau fait 22cm de diamètre, ce qui donne un rayon de 11 cm. Cependant, il faut tenir compte de la taille du chariot de la tête d'impression et des dimensions des bras d'impression. Ici un diamètre de 20 cm est tout à fait jouable, ce qui donne une valeur d erayon de 10 cm. La baleur est à inscrire en mm, soit 100 mm.
 
-Exemple : 
+Exemple :
 
 ```
 // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
@@ -89,7 +91,7 @@ Ces paramètres définissent le type de thermistance utilisée pour suivre la te
 
 Pour démarrer la configuration de l'imprimante ou n'utiliser que l'une ou l'autre des buses, il est possible de mettre ce paramètre à 0. Dans mon cas, ne voulant imprimer au départ qu'avec une buse, j'ai décidé de mettre TEMP_SENSOR_1 à 0, soit "not used" afin de limiter les risques de chauffe imprévus sur cette buse.
 
-Exemple : 
+Exemple :
 
 ```
 // :{ '0': "Not used", '4': "10k !! do not use for a hotend. Bad resolution at high temp. !!", '1': "100k / 4.7k - EPCOS", ... ... - Aller voir le code du firmware pour une liste complète de valeurs - }
@@ -99,7 +101,7 @@ Exemple :
 
 #### 🔵 Ligne : const bool Z_MIN_ENDSTOP_INVERTING
 
-La valeur de Z_MIN_ENDSTOP_INVERTING doit impértaivement être à true, comme indiqué dans la documentataion de paramétrage, sans quoi, l'axe Z se comporte à l'inverse de ce qui est attendu. 
+La valeur de Z_MIN_ENDSTOP_INVERTING doit impértaivement être à true, comme indiqué dans la documentataion de paramétrage, sans quoi, l'axe Z se comporte à l'inverse de ce qui est attendu.
 
 Exemple :
 
@@ -120,7 +122,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the logic
 
 Il s'agit de définir le périmètre utile pour la sonde permettant l'auto-levelling. Celle-ci est excentrée par rapport aux buses, ce qui induit une réduction du périmètre de test. Il faut mesurer la distance latérale entre les buses et la sonde, puis reporter cette valeur dans la formule de calcul de la variable (en millimètre toujours, et en sosustraction du périmètre d'impression puisqu'on le réduit pour la sonde). Sur la G2S, la sonde se trouve à 2 cm à gauche des buses.
 
-Exemple : 
+Exemple :
 
 ```
 #ifdef AUTO_BED_LEVELING_GRID
@@ -142,7 +144,7 @@ Exemple :
 
 Il s'agit du nombre de points de contact qui doivent être répartis sur la zone définie par DELTA_PROBABLE_RADIUS tout en respectant MIN_PROBE_EDGE.
 
-Exemple : 
+Exemple :
 
 ```
   #define AUTO_BED_LEVELING_GRID_POINTS 8  	// indique 8 points de contacts à répartir sur le plateau
@@ -152,9 +154,9 @@ Exemple :
 
 #### 🔵 Lignes : <Z/Y/Z>PROBE_OFFSET_FROM_EXTRUDER
 
-Ces paramètres permettent de définir le point de contact exact entre la sonde et l'extrudeur. 
+Ces paramètres permettent de définir le point de contact exact entre la sonde et l'extrudeur.
 
-X et Y déterminent les coordonnées relatives de la sonde par rapport à la buse 0. 
+X et Y déterminent les coordonnées relatives de la sonde par rapport à la buse 0.
 
 Z détermine la hauteur à laquelel la sonde touche le plateau et active le contact (en endstop). La valeur de Z détermine ensuite la hauteur idéale de la buse par rapport au plateau pour génrer la première couche d'impression. Cette valeur est ensuite ajoutée ou retirée du zéro absolu lors de la conception du gcode d'impression pour les pièces.
 
@@ -168,9 +170,9 @@ Exemple :
 
 Dans cet exemple, en considérant que le centre de la tête d'impression est la référence (ce qui est faux dans le cas d'une double-tête d'impression) la sonde se trouve à 19 millimètres à gauche, et à 11 millimètres en avant du centre de la tête d'impression (soit quasi au niveau de la buse 0).
 
-La sonde entre en contact avec le endstop (ond oit entendre un "clic" au moment de la prise de mesure) lorsque la buse est à 3,42 millimètres du plateau. soit -3,42 millimètres à reporter sur Z_PROBE_OFFSET_FROM_EXTRUDER. 
+La sonde entre en contact avec le endstop (ond oit entendre un "clic" au moment de la prise de mesure) lorsque la buse est à 3,42 millimètres du plateau. soit -3,42 millimètres à reporter sur Z_PROBE_OFFSET_FROM_EXTRUDER.
 
-Etant donné que la sonde est mesurée via un endstop, le mieux est d'ensuite tester la vleur et de la modifier en focniton du resultat obtenu sur un test d'impression poru la première couche : 
+Etant donné que la sonde est mesurée via un endstop, le mieux est d'ensuite tester la vleur et de la modifier en focniton du resultat obtenu sur un test d'impression poru la première couche :
 
 - Si la tête d'impression est trop basse et écrase trop la 1ere couche sur le plateau, il faut la remmonter. Dans ce cas, il faut ajouter de la valeur à Z_PROBE_OFFSET_FROM_EXTRUDER (par exemple passer la valeur de -3.42 à -3.30).
 - Si la tête d'impression est trop haute et ne permet pas à la première couche d'impression d'adhérer correctement au plateau, il faut retirer de la valeur à Z_PROBE_OFFSET_FROM_EXTRUDER (par exemple passer la valeur de -3.42 à -3.50).
@@ -183,7 +185,7 @@ Comme son nom l'indique, il s'agit de relever la tête d'impression, et donc la 
 
 Il convient de régler ces valeurs à l'usage et en fonction du nombre de points de contact et du périmètre de test choisis.
 
-Exemple : 
+Exemple :
 
 ```
 #define Z_RAISE_BEFORE_PROBING 20    //How much the extruder will be raised before traveling to the first probing point.
@@ -195,7 +197,7 @@ Exemple :
 
 Cette ligne est en commentaire par défaut dans le code marlin RKMB 1.0.3 dev par défaut. Poru ma part je l'aid écommenté car elle permet de recentrer la tête d'impression après l'autolevelling.
 
-Exemple : 
+Exemple :
 
 ```
  #define Z_PROBE_END_SCRIPT "M114\nG1 X0 Y0 F5000"
@@ -221,7 +223,7 @@ MANUAL_Z_HOME_POS est quand à lui bien plus utile puisqu'il permet de définir 
 
 De cette valeur dépendra, et sauf si on utilise l'autolevelling, la qualité de la premièr ecouche d'impression. En effet, l'imprimante considèrera le niveau 0 (première couche) à MANUAL_Z_HOME_POS mm de la position à laquelle la buse se trouve en postion Home (G28).
 
-Exemple : 
+Exemple :
 
 ```
 #ifdef MANUAL_HOME_POSITIONS
@@ -237,7 +239,7 @@ Ici les mesures de mon imprimante, après calibrage du plateau au niveau des axe
 
 - Ce paramètre permet de gérer la hauteur d'impression avec les 3 premières valeurs. Si l'impression est trop écrasée ou trop haute par rapport à la taille prévue, il convient de recalibrer X, Y, et Z en même temps.
 
-La méthode de recalibrage est de fair euen règle de 3 entr ela valeur d'origine, la dimension souhiatée et la diemnsion réellement obtenue. 
+La méthode de recalibrage est de fair euen règle de 3 entr ela valeur d'origine, la dimension souhiatée et la diemnsion réellement obtenue.
 
 ⚠**Attention**⚠: les valeurs pour X,Y, et Z doivent être rigoureusement identique sous peine de décaler l'assiette d'impression. Modifier ces paramètres modifie aussi la mesure de MANUAL_Z_HOME_POS qui sera à recalibrer.
 
@@ -247,7 +249,7 @@ La méthode de recalibrage est de fair euen règle de 3 entr ela valeur d'origin
 
 **Exercice** : faire une marque à 150 millimetres sur le fil d'impression en sortie de bobine. Faire avancer manuellement le filament de 100 mm. Mesurer ce qui reste jusqu'à la marque. Si il reste 50 millimetre, c'est que le moteur de l'extrudeur est bien calibré. Sinon, il faut fair eune règle de 3 là aussi pourtrouver la bonne mesure. Si il reste 43 mm; cela signifie que l'imprimante est en sur-extrusion. Le paramètre d'origine est habituellement configuré à 93 sur une G2S. Nouvelle valeur = 93 * 100 / 107 = 86.9.
 
-Exemple : 
+Exemple :
 
 ```
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {80, 80, 80, 93}	// respectivement, X,Y,Z et E pour extrudeur
@@ -261,9 +263,256 @@ La G2S dispose de 2 buses alignées sur la longuer avec le centre du plateau. Ce
 
 Pour la G2S, le décalge ne concerne que l'axe Y. Il est de 13 mm en avant et en arrière du centre du plateau respectivement pour les buses 0 et 1. Cette valeur peut être affinée si necessaire avec différents essais afin d'avoir un parfait alignement des impressions des buses 0 et 1 sur une même couche.
 
-Exemple : 
+⛔ A NE PAS FAIRE ⛔ : Modifier les valeurs d'offset dans le Marlin en version 1.0.3 car cela modifie l'assiette d'impression au changement de buse. Le mieux est de paramétrer ce changement d'offset dans le slicer directement
+
+Exemple poru slic3r ou PrusaSlic3r / Repetier :
 
 ```
 #define EXTRUDER_OFFSET_X {0.0, 0.0} // (in mm) for each extruder, offset of the hotend on the X axis
-#define EXTRUDER_OFFSET_Y {-13.0, +13.0}  // (in mm) for each extruder, offset of the hotend on the Y axis 
+#define EXTRUDER_OFFSET_Y {0, 0}  // (in mm) for each extruder, offset of the hotend on the Y axis 
+```
+
+![1698490445187](image/03_G2S_PRO_Configuration/1698490445187.png)
+
+![1698490478566](image/03_G2S_PRO_Configuration/1698490478566.png)
+
+et modifier les paramètres dans Repetier de la même façon pour l'affichage du plateau après le tranchage
+
+![1698490559481](image/03_G2S_PRO_Configuration/1698490559481.png)
+
+
+
+### Fichier marlin_main.cpp
+
+La modification du fichier marlin.cpp concerne une meilleur prise en charge de la sonde. A ce sujet, j'ai suivis le tuto de Philippe Hervier (on ne se connait pas, mais merci à lui pour ces modifications). Vous pouvez retrouver différents lien sur ses travaux pour la G2S ci-dessous :
+
+Lien pour régler le problème de sonde : [Tuto Sonde](https://3dprinters.proboards.com/thread/16/complete-guide-make-levelling-operational) - [Youtube Sonde](https://www.youtube.com/@philippehervier9530)
+
+Line github avec MArlin 2.0 pour G2S : [Marlin G2S](https://github.com/phil-hx/Marlin)
+
+Il ne s'agit pas de faire une redite du travail accomplis, donc je vais me contenter de mettre un lien vers mon fichier marlin.cpp et de détailler chaque changement en copiant/collant le slignes de code commentées et celles ajoutées.
+
+Lien : [marlin_main.cpp](Geeetech_Delta_G2S_Pro\Marlin_Geeetech_RKMB_GT2560_G2S_Pro\Marlin\Marlin_main.cpp)
+
+#### 🔵 Etape 1 - Bloquer l'usage de G29 si la sonde est déployée
+
+Après la ligne 2567 `st_synchronize();`
+
+Ajouter le bloc de code suivant :
+
+```
+    #define MSG_PROBE_NOT_DEPLOYED  "G29 probe not deployed"    // 2021-07-08 - LGD - DEBUT Code ajouté
+  
+    if (!deploy_probe_for_each_reading) { // if the probe is not to deploy for each point,
+                                          // it should be deploy at this point.
+                                          // otherwise return in error
+      boolean probestate=true;
+      #if HAS_Z_MIN
+        probestate=READ(Z_MIN_PIN)^Z_MIN_ENDSTOP_INVERTING;
+      #endif
+      #ifdef Z_PROBE_ENDSTOP
+        probestate=READ(Z_PROBE_PIN)^Z_PROBE_ENDSTOP_INVERTING;
+      #endif
+
+      if (probestate){      // test the probe state  state                     
+        LCD_MESSAGEPGM(MSG_PROBE_NOT_DEPLOYED);
+        SERIAL_ECHO_START;
+        SERIAL_ECHOLN(MSG_PROBE_NOT_DEPLOYED);
+        return;
+      }
+    }  // // 2021-07-08 - LGD - FIN Code ajouté
+```
+
+#### 🔵 Etape 2 - Modification du gcode pour fonctionner correctement avec 2 extrudeurs et une sonde
+
+Chercher la ligne (après 5100) : `Offset extruder (only by XY)`
+
+Modifier le bloc de code comme ceci :
+
+```
+        #else // !DUAL_X_CARRIAGE   // 2021-07-08 - LGD - DEBUT code adapté pour G2S
+          // Offset extruder (only by XY)
+     //     for (int i=X_AXIS; i<=Y_AXIS; i++)   
+     //       current_position[i] += extruder_offset[i][tmp_extruder] - extruder_offset[i][active_extruder];
+     //      // Set the new active extruder and position
+     //     active_extruder = tmp_extruder;
+     //   #endif // !DUAL_X_CARRIAGE
+    //    #ifdef DELTA
+     //     sync_plan_position_delta();
+     //   #else
+     //     sync_plan_position();
+     //   #endif
+     //   // Move to the old position if 'F' was in the parameters
+    //    if (make_move && IsRunning()) prepare_move();
+
+                 if (extruder_offset[X_AXIS][tmp_extruder]==0 && extruder_offset[Y_AXIS][tmp_extruder]==0 &&
+              extruder_offset[X_AXIS][active_extruder]==0 && extruder_offset[Y_AXIS][active_extruder]==0){
+              active_extruder = tmp_extruder;
+          } else {
+            for (int i=X_AXIS; i<=Y_AXIS; i++)
+              current_position[i] += extruder_offset[i][tmp_extruder] - extruder_offset[i][active_extruder];
+              // Set the new active extruder and position
+            active_extruder = tmp_extruder;
+            #endif // !DUAL_X_CARRIAGE
+            SERIAL_ECHO_START;
+            SERIAL_ECHOLN(" send plan position");
+            #ifdef DELTA
+              sync_plan_position_delta();
+            #else
+              sync_plan_position();
+            #endif
+            // Move to the old position if 'F' was in the parameters
+            if (make_move && IsRunning()) prepare_move();
+         }  // // 2021-07-08 - LGD - FIN code adapté pour G2S
+```
+
+#### 🔵 Etape 3 - Configuration du GCode M851 pour enregistrer effectivement les coordonnées de la sonde
+
+Chercher la ligne (vers ligne 2600) : `delta_grid_spacing[1] = yGridSpacing;`
+
+Modifier le code ainsi :
+
+```
+      #ifdef DELTA
+        delta_grid_spacing[0] = xGridSpacing;
+        delta_grid_spacing[1] = yGridSpacing;
+        // float z_offset = Z_PROBE_OFFSET_FROM_EXTRUDER;    // 2021-07-08 - LGD - Code adapté DEBUT
+        float z_offset = -zprobe_zoffset ; // do not use Z_PROBE_OFFSET_FROM_EXTRUDER;   // // 2021-07-08 - LGD - Code adapté FIN
+        if (code_seen(axis_codes[Z_AXIS])) z_offset += code_value();
+      #else // !DELTA
+```
+
+Puis chercher la ligne (vers ligne 5750) : `#ifdef ENABLE_AUTO_BED_LEVELING`
+
+Modifier le code ainsi :
+
+```
+   #ifdef ENABLE_AUTO_BED_LEVELING
+      // if (Z_PROBE_OFFSET_FROM_EXTRUDER < 0) negative_z_offset += Z_PROBE_OFFSET_FROM_EXTRUDER;  // // 2021-07-08 - LGD - DEBUT code adapté pour G2S
+      if (zprobe_zoffset > 0) negative_z_offset -= zprobe_zoffset;    // // 2021-07-08 - LGD - FIN code adapté pour G2S
+      if (home_offset[Z_AXIS] < 0) negative_z_offset += home_offset[Z_AXIS];
+    #endif
+```
+
+#### 🔵 Etape 4 - Modification des GCode M401 et M402 afin de sécuriser leur usage en fonction de la position de la sonde
+
+Chercher la ligne (vers ligne 4500): `inline void gcode_M400() { st_synchronize(); }`
+
+Modifier le code ainsi :
+
+```
+* M400: Finish all moves
+ */
+inline void gcode_M400() { st_synchronize(); }
+
+// #if defined(ENABLE_AUTO_BED_LEVELING) && !defined(Z_PROBE_SLED) && (defined(SERVO_ENDSTOPS) || defined(Z_PROBE_ALLEN_KEY))    // 2021-07-08 - LGD - DEBUT adapté pour correspondre à la configuration de la G2S
+#if defined(ENABLE_AUTO_BED_LEVELING)    // // 2021-07-08 - LGD - FIN adapté pour correspondre à la configuration de la G2S
+```
+
+Puis chercher la ligne dans le code juste après : `deploy_z_probe();` afin demodifier le GCODE M401
+
+Ajouter le bloc de code comme indiqué :
+
+```
+  /**
+   * M401: Engage Z Servo endstop if available
+   */
+  inline void gcode_M401() {
+    #ifdef SERVO_ENDSTOPS
+      raise_z_for_servo();
+    #endif
+    deploy_z_probe();
+
+     // and block if probe is not deployed      // 2021-07-08 - LGD - DEBUT code adapté G2S
+    #define MSG_WAIT_PROBE_DEPLOYED "Wait probe deployment"
+     boolean probestate=true,probe_msg=true;
+ 
+     while(probestate){
+      #if HAS_Z_MIN
+        probestate=READ(Z_MIN_PIN)^Z_MIN_ENDSTOP_INVERTING;
+      #endif
+      #ifdef Z_PROBE_ENDSTOP
+        probestate=READ(Z_PROBE_PIN)^Z_PROBE_ENDSTOP_INVERTING;
+      #endif
+ 
+      if (probestate && probe_msg){      // send waiting message once                    
+        LCD_MESSAGEPGM(MSG_WAIT_PROBE_DEPLOYED);
+        SERIAL_ECHO_START;
+        SERIAL_ECHOLNPGM(MSG_WAIT_PROBE_DEPLOYED);
+        probe_msg=false;
+      }
+      idle();
+     }
+     SERIAL_ECHOLNPGM(MSG_ZPROBE_OUT);
+     LCD_MESSAGEPGM(MSG_ZPROBE_OUT);    // 2021-07-08 - LGD - FIN code adapté G2S
+  }
+```
+
+Puis cherhcer la ligne dans le code juste après : `stow_z_probe(false);` afind emodifier le GCode M402
+
+Ajouter le bloc de code comme indiqué :
+
+```
+/**
+   * M402: Retract Z Servo endstop if enabled
+   */
+  inline void gcode_M402() {
+    #ifdef SERVO_ENDSTOPS
+      raise_z_for_servo();
+    #endif
+    stow_z_probe(false);
+
+    // and block if probe is not stowed     // // 2021-07-08 - LGD - DEBUT code adapté G2S
+    #define MSG_WAIT_PROBE_STOW "Wait probe stowed"
+     boolean probestate=false,probe_msg=true;
+ 
+     while( ! probestate){
+      #if HAS_Z_MIN
+        probestate=READ(Z_MIN_PIN)^Z_MIN_ENDSTOP_INVERTING;
+      #endif
+      #ifdef Z_PROBE_ENDSTOP
+        probestate=READ(Z_PROBE_PIN)^Z_PROBE_ENDSTOP_INVERTING;
+      #endif
+ 
+      if (! probestate && probe_msg){      // send waiting message once                    
+        LCD_MESSAGEPGM(MSG_WAIT_PROBE_STOW);
+        SERIAL_ECHO_START;
+        SERIAL_ECHOLNPGM(MSG_WAIT_PROBE_STOW);
+        probe_msg=false;
+      }
+      idle();
+     }
+     // add a waiting tiile to secure the probe
+     if (! probe_msg){
+      millis_t codenum = 3500;
+      codenum += millis();  // keep track of when we started waiting
+
+     while (millis() < codenum) idle();
+      ;
+     }
+     SERIAL_ECHOLNPGM(WELCOME_MSG);
+     LCD_MESSAGEPGM(WELCOME_MSG);  // // 2021-07-08 - LGD - FIN code adapté G2S
+  }
+```
+
+Puis chercher la ligne (vers ligne 5690) : `gcode_M400();` afind emodifier les conditions d'execution du GCode M400
+
+Ajouter le bloc de code comme indiqué :
+
+```
+// #if defined(ENABLE_AUTO_BED_LEVELING) && (defined(SERVO_ENDSTOPS) || defined(Z_PROBE_ALLEN_KEY)) && !defined(Z_PROBE_SLED)   // // 2021-07-08 - LGD - DEBUT code adapté pour G2S
+      #if defined(ENABLE_AUTO_BED_LEVELING)|| (defined(Z_PROBE_ALLEN_KEY) && !defined(Z_PROBE_SLED)) // // 2021-07-08 - LGD - FIN code adapté pour G2S
+```
+
+ET EFFECTIVEMENT ...
+
+Avec toutes ces modifications, le GCode de démarrage fonctionne très bien avec l'auto-levelling
+
+Il suffit d'ajout ce code dans le script de démarrage :
+
+```
+M401; lower probe or wait for it
+G29 ; auto-levelling
+G1 Z10 F5000 ; lift nozzle
+M402; stow probe or wait for it
 ```

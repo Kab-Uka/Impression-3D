@@ -12,7 +12,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * GNU General Public License for more details.zprobe_zoffset
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -2618,8 +2618,8 @@ inline void gcode_G28() {
       #ifdef DELTA
         delta_grid_spacing[0] = xGridSpacing;
         delta_grid_spacing[1] = yGridSpacing;
-         float z_offset = Z_PROBE_OFFSET_FROM_EXTRUDER;    // 2021-07-08 - LGD - Code adapté. Fonctionne mieux ainsi. A revérifier un de ces 4
-        //float z_offset = -zprobe_zoffset ; // do not use Z_PROBE_OFFSET_FROM_EXTRUDER;   // // 2021-07-08 - LGD - Code adapté. Fonctionne mieux ainsi. A revérifier un de ces 4 - Recommenté pour test et laissé ainsi
+        // float z_offset = Z_PROBE_OFFSET_FROM_EXTRUDER;    // 2021-07-08 - LGD - Code adapté DEBUT - A VERIFIER --
+        float z_offset = -zprobe_zoffset ; // do not use Z_PROBE_OFFSET_FROM_EXTRUDER;   // // 2021-07-08 - LGD - Code adapté FIN
         if (code_seen(axis_codes[Z_AXIS])) z_offset += code_value();
       #else // !DELTA
         // solve the plane equation ax + by + d = z
